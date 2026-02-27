@@ -3,6 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:market_app/views/ui/forget_pass_screen/forget_pas.dart';
 import 'package:market_app/views/ui/controller_of_screen/control_of_screen.dart';
 import 'package:market_app/views/ui/login_screnn/loginscreen.dart';
+import 'package:market_app/views/ui/product_page/product_page.dart';
+import 'package:market_app/views/ui/profile/editname.dart';
 import 'package:market_app/views/ui/signup_screen/signup.dart';
 
 class RouterNav {
@@ -33,5 +35,11 @@ class RouterNav {
         builder: (BuildContext context, GoRouterState state) { 
           return const ControlScreens();},
           ),
+          GoRoute(
+        path: '/productscreen',
+        builder: (BuildContext context, GoRouterState state) { 
+          return const ProductPage();},
+          ),
+          
     ]);
 }

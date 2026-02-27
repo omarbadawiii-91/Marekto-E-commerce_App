@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:market_app/core/share_items/button.dart';
-import 'package:market_app/core/share_items/items.dart';
-import 'package:market_app/core/share_items/icon.dart';
-import 'package:market_app/core/share_items/style_text.dart';
+import 'package:market_app/core/items/buttons/button.dart';
+import 'package:market_app/core/items/fields/fields.dart';
+import 'package:market_app/core/items/styles/icon.dart';
+import 'package:market_app/core/items/signin-up_texts/signin-up_texts.dart';
+import 'package:market_app/core/items/styles/style_text.dart';
 
 class Forgetpass extends StatefulWidget {
   const Forgetpass({super.key});
@@ -34,21 +35,21 @@ class _ForgetpassState extends State<Forgetpass>
                     Iconphoto.iconimage,
                     Padding(
                       padding: EdgeInsets.only(top: 20.h),
-                      child: Itemsoflogin.title,
+                      child: SigninUpTexts.title,
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 9.h),
-                      child: Itemsoflogin.subtitle,
+                      child: SigninUpTexts.subtitle,
                     ),
                     Padding(
                       padding: EdgeInsets.only(top: 56.h),
-                      child: Itemsoflogin.forget,
+                      child: SigninUpTexts.forget,
                     ),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: Padding(
                         padding: EdgeInsets.only(top: 60.h, left: 38.w),
-                        child: Itemsoflogin.email,
+                        child: SigninUpTexts.email,
                       ),
                     ),
                     Padding(
@@ -60,8 +61,12 @@ class _ForgetpassState extends State<Forgetpass>
                       child: Fields(
                         hinttext: "Email",
                         icon: Icon(Icons.email_outlined),
-                        validatorchek: "email is required",
-                      ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Please enter your email";
+                          }
+                          return null;
+                        },),
                     ),
                    
                     Padding(

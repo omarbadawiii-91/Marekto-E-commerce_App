@@ -50,17 +50,17 @@ class NavBar extends StatelessWidget {
               0,
               0,
             ), // selected icon and text color
-            iconSize: 24, // tab button icon size
+            iconSize: 25, // tab button icon size
             tabBackgroundColor:
                 AppColors.kPrimaryColor, // selected tab background color
             padding: EdgeInsets.symmetric(
-              horizontal: 20,
+              horizontal: 17,
               vertical: 8,
             ), // navigation bar padding
             tabs: [
               GButton(icon: Icons.home, text: 'Home'),
-              GButton(icon: Icons.favorite, text: 'Likes'),
-              GButton(icon: Icons.search, text: 'Search'),
+              GButton(icon: Icons.store, text: 'Store'),
+              GButton(icon: Icons.favorite, text: 'Favorites'),
               GButton(icon: Icons.person, text: 'Profile'),
             ],
           );

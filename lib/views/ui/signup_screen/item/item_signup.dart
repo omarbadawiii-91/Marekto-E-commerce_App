@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:market_app/core/share_items/button.dart';
-import 'package:market_app/core/share_items/icon.dart';
-import 'package:market_app/core/share_items/items.dart';
-import 'package:market_app/core/share_items/style_text.dart';
+import 'package:market_app/core/items/buttons/button.dart';
+import 'package:market_app/core/items/styles/icon.dart';
+import 'package:market_app/core/items/fields/fields.dart';
+import 'package:market_app/core/items/signin-up_texts/signin-up_texts.dart';
+import 'package:market_app/core/items/styles/padding.dart';
+import 'package:market_app/core/items/styles/style_text.dart';
 
-class items_of_signup extends StatelessWidget {
-  const items_of_signup({
+class Itemsofsignup extends StatelessWidget {
+  const Itemsofsignup({
     super.key,
     required this.isnotvisible,
     required this.formkey,
@@ -21,85 +23,72 @@ class items_of_signup extends StatelessWidget {
     return Column(
       children: [
         Iconphoto.iconimage,
-        Padding(
-          padding: EdgeInsets.only(top: 20.h),
-          child: Itemsoflogin.title,
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: 9.h),
-          child: Itemsoflogin.subtitle,
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: 20.h),
-          child: Text(
-            "Sign up to your Market account",
-            style: StyleText.style20.copyWith(fontSize: 20.sp),
-          ),
-        ),
+        Pad.padcustom(20.h, 0, 0, 0, child: SigninUpTexts.title),
+        Pad.padcustom(9.h, 0, 0, 0, child: SigninUpTexts.subtitle),
+        Pad.padcustom(22.h, 0, 0, 0, child: SigninUpTexts.signup),
         Align(
           alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: EdgeInsets.only(top: 30.h, left: 38.w),
-            child: Itemsoflogin.email,
-          ),
+          child: Pad.padcustom(30.h, 0, 38.w, 0, child: SigninUpTexts.email),
         ),
-        Padding(
-          padding: EdgeInsets.only(
-            top: 20.h,
-            left: 30.w,
-            right: 30.w,
-          ),
+        Pad.padcustom(
+          20.h,
+          0,
+          30.w,
+          30.w,
           child: Fields(
             hinttext: "Email",
             icon: Icon(Icons.email_outlined),
-            validatorchek: "email is required",
+            validator: (value) {
+              if (value != null && !value.contains("@")) {
+                return "Please enter a valid email";
+              }
+              return null;
+            },
+            
+            ),
+        ),
+        Align(
+          alignment: Alignment.centerLeft,
+          child: Pad.padcustom(10.h, 0, 38.w, 0, child: SigninUpTexts.password),
+        ),
+        Pad.padcustom(
+          20.h,
+          0,
+          30.w,
+          30.w,
+          child: Fields(
+            hinttext: "Password",
+            icon: Icon(Icons.visibility),
+            validator: (value) {
+              if (value != null && value.length < 6) {
+                return "Password must be at least 6 characters";
+              }
+              return null;
+            },
           ),
         ),
         Align(
           alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: EdgeInsets.only(top: 5.h, left: 38.w),
-            child: Itemsoflogin.password,
-          ),
+          child: Pad.padcustom(10.h, 0, 38.w, 0, child: SigninUpTexts.password),
         ),
-        Padding(
-          padding: EdgeInsets.only(
-            top: 20.h,
-            left: 30.w,
-            right: 30.w,
-          ),
+        Pad.padcustom(
+          20.h,
+          0,
+          30.w,
+          30.w,
           child: Fields(
-            obscureText: isnotvisible,
-            hinttext: "Password",
+            hinttext: "Confirm Password",
             icon: Icon(Icons.visibility),
-    
-            validatorchek: "Password is required",
-          ),
-        ),
-        Align(
-          alignment: Alignment.centerLeft,
-          child: Padding(
-            padding: EdgeInsets.only(top: 5.h, left: 38.w),
-            child: Itemsoflogin.repassword,
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(
-            top: 20.h,
-            left: 30.w,
-            right: 30.w,
-          ),
-          child: Fields(
-            obscureText: isnotvisible,
-            hinttext: "Password",
-            icon: Icon(Icons.visibility),
-            validatorchek: "Password is required",
+            validator: (value) {
+              if (value != null && value.length < 6) {
+                return "Password must be at least 6 characters";
+              }
+              return null;
+            },
           ),
         ),
     
-        Padding(
-          padding: EdgeInsets.only(top: 20.h),
-          child: Button(
+        Pad.padcustom(30.h, 0, 0, 0, child: Button(
             buttontext: "Sign Up",
             buttonstyle: StyleText.style16.copyWith(
               color: Colors.white,
@@ -107,11 +96,13 @@ class items_of_signup extends StatelessWidget {
             onpressed: () {
               if (formkey.currentState!.validate()) {}
             },
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(top: 20.h),
-          child: Row(
+          ),),
+        Pad.padcustom(
+          20.h,
+          0,
+          0,
+          0,
+          child:Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
@@ -134,8 +125,7 @@ class items_of_signup extends StatelessWidget {
               ),
             ],
           ),
-        ),
-      ],
-    );
+        )
+      ]);
   }
 }

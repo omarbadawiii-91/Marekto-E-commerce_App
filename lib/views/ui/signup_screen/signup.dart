@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:market_app/core/items/styles/padding.dart';
 import 'package:market_app/views/ui/signup_screen/item/item_signup.dart';
 
 class Signupscreen extends StatefulWidget {
@@ -20,18 +21,14 @@ class _SignupscreenState extends State<Signupscreen>
         child: SizedBox(
           height: 932.h,
           width: 430.w,
-          child: Padding(
-            padding: EdgeInsets.only(top: 60.h),
-            child: Form(
+          child: Pad.padcustom(60.h, 0, 0, 0, child: Form(
               key: formkey,
               child: SingleChildScrollView(
                 physics: BouncingScrollPhysics(),
-                child: items_of_signup(isnotvisible: isnotvisible, formkey: formkey),
+                child: Itemsofsignup(isnotvisible: isnotvisible, formkey: formkey),
               ),
-            ),
-          ),
+            ),),)
         ),
-      ),
     );
   }
 }

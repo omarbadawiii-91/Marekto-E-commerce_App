@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:market_app/core/colors/app_colors.dart';
-import 'package:market_app/core/share_items/style_text.dart';
+import 'package:market_app/core/items/styles/padding.dart';
+import 'package:market_app/core/items/styles/style_text.dart';
 
 List<Categories> categories = [
   Categories(icon: Icons.sports, title: "Sports"),
@@ -11,6 +12,7 @@ List<Categories> categories = [
   Categories(icon: Icons.gamepad, title: "Games"),
 ];
 
+// ignore: must_be_immutable
 class Categories extends StatelessWidget {
    IconData ?icon;
   String ?title;
@@ -22,17 +24,15 @@ class Categories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 10),
-      child: SizedBox(
+    return Pad.padcustom(20.h, 0, 0, 0,
+     child: SizedBox(
         height: 150.h,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: categories.length,
           itemBuilder: (context, index) {
-            return Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
+            return Pad.padcustom(18.h, 0, 20.w, 0,
+           child:  Column(
                 children: [
                   SizedBox(
                     height: 65.h,
@@ -45,12 +45,10 @@ class Categories extends StatelessWidget {
                   ),
                   Text(categories[index].title!,style: StyleText.style20.copyWith(fontWeight: FontWeight.bold,fontSize: 16.sp),),
                 ],
-              ),
-            );
+              ),);
           },
         ),
-      ),
-    );
+      ),);
   }
 }
 

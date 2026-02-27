@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:market_app/core/items/styles/style_text.dart';
-import 'package:market_app/views/ui/home/items/categories.dart';
 import 'package:market_app/views/ui/shared_item/custom_search.dart';
 import 'package:market_app/views/ui/shared_item/card.dart';
-import 'package:market_app/views/ui/shared_item/shopphoto.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class StorePage extends StatelessWidget {
+  const StorePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +15,19 @@ class HomePage extends StatelessWidget {
         padding: const EdgeInsets.only(left: 20, right: 20, top: 80),
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(child: CustomSearch()),
-            SliverToBoxAdapter(child: ShopPhoto()),
             SliverToBoxAdapter(
               child: Padding(
-                padding: const EdgeInsets.only(top: 15, left: 10),
-                child: Text(
-                  "Categories",
-                  style: StyleText.style20.copyWith(fontSize: 25.sp),
+                padding:  EdgeInsets.only(bottom: 22.h),
+                child: Center(
+                  child: Text(
+                    "Welcome to Store",
+                    style: StyleText.style20.copyWith(fontSize: 30.sp, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
             ),
-            SliverToBoxAdapter(child: Categories()),
+            SliverToBoxAdapter(child: CustomSearch()),
+            SliverToBoxAdapter(child: Padding(padding: EdgeInsets.all(20))),
            SliverList.builder(itemBuilder: (context, index) => Cards(index: index,), itemCount: card.length),
           ],
         ),

@@ -10,6 +10,9 @@ class CustomSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      onChanged: (value) => {
+
+      },
       decoration: InputDecoration(
         fillColor: const Color.fromARGB(255, 255, 253, 253),
         filled: true,
@@ -19,7 +22,7 @@ class CustomSearch extends StatelessWidget {
         ),
         suffixIcon:ElevatedButton(onPressed: (){}, 
         style: ElevatedButton.styleFrom(
-          minimumSize: Size(50.w, 50.h) ,
+          fixedSize: Size(70.w, 53.h),
           backgroundColor: AppColors.kPrimaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8),)
