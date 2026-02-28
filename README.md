@@ -7,6 +7,7 @@ Key Features
 Easy & Secure Sign-in
 Get started in seconds — sign up or log in with email, Google, Apple, or continue as guest. Your data stays safe and private.
 5 Curated Main Categories : 
+
 • Sports — fitness equipment, sportswear, accessories
 • Electronics — smartphones, laptops, gadgets, audio
 • Collections — limited editions, vintage, exclusive drops
@@ -18,6 +19,7 @@ Instantly find exactly what you want. Type a keyword, filter by category, price,
 Rich Product Pages That Help You Decide
 
 Tap any item and discover:
+
 • Clear product name, current price & any discounts
 • Average rating + number of reviews
 • Detailed description, specifications, sizing info (when applicable)
@@ -29,6 +31,7 @@ Heart items you like → they instantly save to your personal Favorites list. Co
 Your Personal Profile – Full Control
 
 Profile : 
+
 • Edit your name, profile picture, and preferences
 • View complete purchase history
 • Track orders (status, estimated delivery)
