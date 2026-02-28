@@ -9,9 +9,13 @@ Get started in seconds — sign up or log in with email, Google, Apple, or conti
 5 Curated Main Categories : 
 
 • Sports — fitness equipment, sportswear, accessories
+
 • Electronics — smartphones, laptops, gadgets, audio
+
 • Collections — limited editions, vintage, exclusive drops
+
 • Books — bestsellers, novels, comics, educational
+
 • Games — consoles, PC games, accessories, merchandise
 
 Powerful Market Search & Browse
