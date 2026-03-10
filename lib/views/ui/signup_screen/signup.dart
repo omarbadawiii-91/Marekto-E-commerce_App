@@ -12,8 +12,6 @@ class Signupscreen extends StatefulWidget {
 
 class _SignupscreenState extends State<Signupscreen>
     with TickerProviderStateMixin {
-  GlobalKey<FormState> formkey = GlobalKey<FormState>();
-  bool isnotvisible = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,15 +19,18 @@ class _SignupscreenState extends State<Signupscreen>
         child: SizedBox(
           height: 932.h,
           width: 430.w,
-          child: Pad.padcustom(60.h, 0, 0, 0, child: Form(
-              key: formkey,
-              child: SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                child: Itemsofsignup(isnotvisible: isnotvisible, formkey: formkey),
-              ),
-            ),),)
+          child: Pad.padcustom(
+            60.h,
+            0,
+            0,
+            0,
+            child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              child: Itemsofsignup(),
+            ),
+          ),
         ),
+      ),
     );
   }
 }
-

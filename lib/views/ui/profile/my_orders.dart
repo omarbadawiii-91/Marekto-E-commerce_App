@@ -16,22 +16,26 @@ class MyOrders extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.white,
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+        ),
+        title: Text(
+          'My Orders',
+          style: StyleText.style20.copyWith(
+            color: AppColors.kWhiteColor,
+            fontSize: 23.sp,
           ),
         ),
-        title: Text('My Orders', style: StyleText.style20.copyWith(color: AppColors.kWhiteColor,fontSize:23.sp),), centerTitle: true,
+        centerTitle: true,
       ),
-      body:ListView.builder(
-        itemCount:card.length,
+      body: ListView.builder(
+        itemCount: card.length,
         itemBuilder: (context, index) {
           return Padding(
-            padding:  EdgeInsets.only(top: 5.h,left: 20.w,right: 20.w),
-            child: Cards(index: index,),
+            padding: EdgeInsets.only(top: 5.h, left: 20.w, right: 20.w),
+            child: Cards(index: index),
           );
-        }
-      )
+        },
+      ),
     );
   }
 }

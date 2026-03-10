@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ShopPhoto extends StatelessWidget {
-  const ShopPhoto({
-    super.key,
-  });
+  const ShopPhoto({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +14,8 @@ class ShopPhoto extends StatelessWidget {
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
         ),
-        child: Image.asset("assets/images/slazzer-edit-image.png",)),
+        child: Image.asset("assets/images/slazzer-edit-image.png"),
+      ),
     );
   }
 }

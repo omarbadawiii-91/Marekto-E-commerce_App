@@ -14,25 +14,29 @@ List<Categories> categories = [
 
 // ignore: must_be_immutable
 class Categories extends StatelessWidget {
-   IconData ?icon;
-  String ?title;
-   Categories({
-    super.key,
-     this.icon,
-    this.title
-  });
+  IconData? icon;
+  String? title;
+  Categories({super.key, this.icon, this.title});
 
   @override
   Widget build(BuildContext context) {
-    return Pad.padcustom(20.h, 0, 0, 0,
-     child: SizedBox(
+    return Pad.padcustom(
+      20.h,
+      0,
+      0,
+      0,
+      child: SizedBox(
         height: 150.h,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: categories.length,
           itemBuilder: (context, index) {
-            return Pad.padcustom(18.h, 0, 20.w, 0,
-           child:  Column(
+            return Pad.padcustom(
+              18.h,
+              0,
+              20.w,
+              0,
+              child: Column(
                 children: [
                   SizedBox(
                     height: 65.h,
@@ -40,16 +44,22 @@ class Categories extends StatelessWidget {
                     child: CircleAvatar(
                       backgroundColor: AppColors.kPrimaryColor,
                       foregroundColor: AppColors.kScaffoldColor,
-                      child: Icon(categories[index].icon,size: 35,),
+                      child: Icon(categories[index].icon, size: 35),
                     ),
                   ),
-                  Text(categories[index].title!,style: StyleText.style20.copyWith(fontWeight: FontWeight.bold,fontSize: 16.sp),),
+                  Text(
+                    categories[index].title!,
+                    style: StyleText.style20.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.sp,
+                    ),
+                  ),
                 ],
-              ),);
+              ),
+            );
           },
         ),
-      ),);
+      ),
+    );
   }
 }
-
-

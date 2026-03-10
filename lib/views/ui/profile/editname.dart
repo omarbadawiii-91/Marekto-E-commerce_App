@@ -6,7 +6,7 @@ import 'package:market_app/core/items/fields/fields.dart';
 import 'package:market_app/core/items/styles/style_text.dart';
 
 class Editname extends StatefulWidget {
-  final String? currentName; 
+  final String? currentName;
   final Function(String)? onSave;
 
   const Editname({super.key, this.currentName, this.onSave});
@@ -58,7 +58,7 @@ class _EditnameState extends State<Editname> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-               SizedBox(height: 20.h),
+              SizedBox(height: 20.h),
               const Text(
                 'New Name',
                 style: TextStyle(
@@ -75,7 +75,7 @@ class _EditnameState extends State<Editname> {
                 controller: _nameController,
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
-                    return'Please enter your name';
+                    return 'Please enter your name';
                   }
                   if (value.trim().length < 2) {
                     return 'Name must be at least 2 characters';
@@ -84,16 +84,15 @@ class _EditnameState extends State<Editname> {
                 },
               ),
 
-               SizedBox(height: 10.h),
+              SizedBox(height: 10.h),
               CustomButton(
-                onPressed: (){
+                onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     Navigator.pop(context);
                   }
                 },
                 text: 'Save Changes',
               ),
-              
             ],
           ),
         ),

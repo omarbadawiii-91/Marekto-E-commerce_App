@@ -6,4 +6,3 @@ sealed class NavBarState {}
 final class NavBarInitial extends NavBarState {}
 
 final class NavBarchanged extends NavBarState {}
-

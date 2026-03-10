@@ -6,7 +6,12 @@ class Button extends StatelessWidget {
   Function()? onpressed;
   String buttontext;
   TextStyle buttonstyle;
-  Button({super.key, required this.buttontext, required this.buttonstyle, required this.onpressed});
+  Button({
+    super.key,
+    required this.buttontext,
+    required this.buttonstyle,
+    required this.onpressed,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -12,10 +12,12 @@ class FavoritePage extends StatelessWidget {
         padding: const EdgeInsets.only(left: 20, right: 20, top: 80),
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(
-            ),
+            SliverToBoxAdapter(),
             SliverToBoxAdapter(child: Padding(padding: EdgeInsets.all(20))),
-           SliverList.builder(itemBuilder: (context, index) => Cards(index: index,), itemCount: card.length),
+            SliverList.builder(
+              itemBuilder: (context, index) => Cards(index: index),
+              itemCount: card.length,
+            ),
           ],
         ),
       ),

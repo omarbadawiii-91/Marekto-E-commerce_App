@@ -6,6 +6,8 @@ import 'package:market_app/core/items/buttons/custom_button.dart';
 import 'package:market_app/core/items/image_network/image_network.dart';
 import 'package:market_app/core/items/styles/padding.dart';
 import 'package:market_app/core/items/styles/style_text.dart';
+import 'package:market_app/core/models/product_model/models.dart';
+import 'package:market_app/views/ui/product_page/product_page.dart';
 
 List<Cards> card = [
   Cards(
@@ -42,21 +44,39 @@ class Cards extends StatefulWidget {
   String? discount;
   String? offer;
   int? index;
-  Cards({ super.key, this.photo, this.title, this.price, this.discount, this.offer, this.index,});
+  ProductModel? product;
+  Cards({
+    super.key,
+    this.photo,
+    this.title,
+    this.price,
+    this.discount,
+    this.offer,
+    this.index,
+    this.product,
+  });
 
   @override
   State<Cards> createState() => _CardsState();
 }
 
 class _CardsState extends State<Cards> {
- bool isFavorite = false;
+  bool isFavorite = false;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 40),
       child: GestureDetector(
         onTap: () {
-          GoRouter.of(context).push('/productscreen');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ProductPage(
+                price: widget.product!.price!,title: widget.product!.productName!,
+                image: widget.product!.imageUrl,oldprice: widget.product!.oldPrice!,
+                product: widget.product,),
+            ),
+          );
         },
         child: Card(
           color: AppColors.kScaffoldColor,
@@ -80,7 +100,7 @@ class _CardsState extends State<Cards> {
                     SizedBox(
                       height: 250.h,
                       width: double.infinity,
-                      child: Neworkimagecached(index: widget.index,photo: widget.photo,),
+                      child: Neworkimagecached(photo: widget.product!.imageUrl),
                     ),
                     Positioned(
                       child: Container(
@@ -95,7 +115,7 @@ class _CardsState extends State<Cards> {
                         ),
                         child: Center(
                           child: Text(
-                            card[widget.index!].offer!,
+                            "${widget.product!.sale}% OFF",
                             style: StyleText.style20.copyWith(
                               color: AppColors.kScaffoldColor,
                               fontSize: 18.sp,
@@ -108,11 +128,16 @@ class _CardsState extends State<Cards> {
                   ],
                 ),
               ),
-              Pad.padcustom(10.h, 0, 15.w, 15.w, child: Row(
+              Pad.padcustom(
+                10.h,
+                0,
+                15.w,
+                15.w,
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      card[widget.index!].title!,
+                      widget.product!.productName!,
                       style: StyleText.style20.copyWith(
                         fontWeight: FontWeight.bold,
                         fontSize: 20.sp,
@@ -121,35 +146,40 @@ class _CardsState extends State<Cards> {
                     IconButton(
                       onPressed: () {},
                       icon: IconButton(
-                    icon: Icon(
-                     isFavorite ? Icons.favorite : Icons.favorite_border,
-                      color: isFavorite ? Colors.red : Colors.grey,
-                      size: 32,
-                    ),
-                    onPressed: () {
-                      setState(() {
-                        isFavorite = !isFavorite;
-                      });
-                    },
-                  ),
+                        icon: Icon(
+                          isFavorite ? Icons.favorite : Icons.favorite_border,
+                          color: isFavorite ? Colors.red : Colors.grey,
+                          size: 32,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            isFavorite = !isFavorite;
+                          });
+                        },
+                      ),
                     ),
                   ],
-                ),),
-               Pad.padcustom(10.h, 15.h, 15.w, 15.w, child: 
-             Row(
+                ),
+              ),
+              Pad.padcustom(
+                10.h,
+                15.h,
+                15.w,
+                15.w,
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       children: [
                         Text(
-                          card[widget.index!].price!,
+                          widget.product!.price!,
                           style: StyleText.style20.copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: 20.sp,
                           ),
                         ),
                         Text(
-                          card[widget.index!].discount!,
+                          widget.product!.oldPrice!,
                           style: StyleText.style20.copyWith(
                             color: const Color.fromARGB(255, 129, 127, 127),
                             fontSize: 18.sp,
@@ -158,16 +188,14 @@ class _CardsState extends State<Cards> {
                         ),
                       ],
                     ),
-                    CustomButton(onPressed: (){},),
+                    CustomButton(onPressed: () {}),
                   ],
                 ),
-          ),
+              ),
             ],
           ),
         ),
       ),
     );
-     
   }
 }
-

@@ -17,23 +17,27 @@ class StorePage extends StatelessWidget {
           slivers: [
             SliverToBoxAdapter(
               child: Padding(
-                padding:  EdgeInsets.only(bottom: 22.h),
+                padding: EdgeInsets.only(bottom: 22.h),
                 child: Center(
                   child: Text(
                     "Welcome to Store",
-                    style: StyleText.style20.copyWith(fontSize: 30.sp, fontWeight: FontWeight.bold),
+                    style: StyleText.style20.copyWith(
+                      fontSize: 30.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ),
             ),
             SliverToBoxAdapter(child: CustomSearch()),
             SliverToBoxAdapter(child: Padding(padding: EdgeInsets.all(20))),
-           SliverList.builder(itemBuilder: (context, index) => Cards(index: index,), itemCount: card.length),
+            SliverList.builder(
+              itemBuilder: (context, index) => Cards(index: index),
+              itemCount: card.length,
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-

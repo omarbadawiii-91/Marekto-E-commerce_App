@@ -18,11 +18,9 @@ class CustomButton extends StatelessWidget {
       style: ElevatedButton.styleFrom(
         minimumSize: Size(50.w, 50.h),
         backgroundColor: const Color.fromARGB(255, 79, 57, 246),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
       child: Text(text, style: StyleText.style20.copyWith(color: Colors.white)),
-      );
+    );
   }
 }

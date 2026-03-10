@@ -1,9 +1,9 @@
-import'package:flutter/material.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:market_app/core/colors/app_colors.dart';
 
-class CirclerProgressIndecator extends StatelessWidget {
-  const CirclerProgressIndecator({super.key});
+class CirclProgressIndecator extends StatelessWidget {
+  const CirclProgressIndecator({super.key});
 
   @override
   Widget build(BuildContext context) {

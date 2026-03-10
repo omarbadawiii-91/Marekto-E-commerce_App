@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:market_app/views/ui/login_screnn/item_of_login/item_of_login.dart';
+import 'package:market_app/views/ui/login_screnn/item_of_login/body_of_login.dart';
 
 class Loginscreen extends StatefulWidget {
   const Loginscreen({super.key});
@@ -11,8 +11,6 @@ class Loginscreen extends StatefulWidget {
 
 class _LoginscreenState extends State<Loginscreen>
     with TickerProviderStateMixin {
-  GlobalKey<FormState> formkey = GlobalKey<FormState>();
-  bool isnotvisible = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,12 +20,9 @@ class _LoginscreenState extends State<Loginscreen>
           width: double.infinity,
           child: Padding(
             padding: EdgeInsets.only(top: 60.h),
-            child: Form(
-              key: formkey,
-              child: SingleChildScrollView(
-                physics: BouncingScrollPhysics(),
-                child: item_of_login(isnotvisible: isnotvisible, formkey: formkey),
-              ),
+            child: SingleChildScrollView(
+              physics: BouncingScrollPhysics(),
+              child: Itemoflogin(),
             ),
           ),
         ),
@@ -35,4 +30,3 @@ class _LoginscreenState extends State<Loginscreen>
     );
   }
 }
-
